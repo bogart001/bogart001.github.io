@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>城里的月光</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="./logo.jpg">
+    <meta name="description" content="我的个人网站">
+    
+    <link rel="preload" href="/assets/css/0.styles.57694080.css" as="style"><link rel="preload" href="/assets/js/app.7a89faa1.js" as="script"><link rel="preload" href="/assets/js/2.e73dd9e9.js" as="script"><link rel="preload" href="/assets/js/10.a9692643.js" as="script"><link rel="prefetch" href="/assets/js/11.46a94f7f.js"><link rel="prefetch" href="/assets/js/12.d8d801a6.js"><link rel="prefetch" href="/assets/js/3.ebb375d8.js"><link rel="prefetch" href="/assets/js/4.aa9fa25b.js"><link rel="prefetch" href="/assets/js/5.32142315.js"><link rel="prefetch" href="/assets/js/6.f75276ee.js"><link rel="prefetch" href="/assets/js/7.35cb990b.js"><link rel="prefetch" href="/assets/js/8.162b0a42.js"><link rel="prefetch" href="/assets/js/9.9b03787b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.57694080.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">城里的月光</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/myCodeEdit.html" class="nav-link">
+  myCodeEdit
+</a></li><li class="dropdown-item"><!----> <a href="/tools/myCodePen.html" class="nav-link">
+  myCodePen
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具" class="mobile-dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/myCodeEdit.html" class="nav-link">
+  myCodeEdit
+</a></li><li class="dropdown-item"><!----> <a href="/tools/myCodePen.html" class="nav-link">
+  myCodePen
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/" class="sidebar-heading clickable router-link-active open"><span>首页</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/js/js_01.html" class="sidebar-link">js_01</a></li><li><a href="/js/js_02.html" aria-current="page" class="active sidebar-link">js_02</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h4 id="_1、babel-转换器"><a href="#_1、babel-转换器" class="header-anchor">#</a> 1、babel 转换器</h4> <p>Babel 是一个广泛使用的 ES6 转码器，可以将 ES6 代码转为 ES5 代码，从而在老版本的浏览器执行。这意味着，你可以用 ES6 的方式编写程序，又不用担心现有环境是否支持。下面是一个例子。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 转码前</span>
+input<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> item <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 转码后</span>
+input<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> item <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="babelrc"><a href="#babelrc" class="header-anchor">#</a> .babelrc</h5> <p>Babel 的配置文件是.babelrc，存放在项目的根目录下。使用 Babel 的第一步，就是配置这个文件。</p> <p>该文件用来设置转码规则和插件，基本格式如下。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+<span class="token string-property property">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string-property property">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+presets 字段设定转码规则，官方提供以下的规则集，你可以根据需要安装。
+
+# 最新转码规则
+
+$ npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev @babel<span class="token operator">/</span>preset<span class="token operator">-</span>env
+
+# react 转码规则
+
+$ npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev @babel<span class="token operator">/</span>preset<span class="token operator">-</span>react
+然后，将这些规则加入<span class="token punctuation">.</span>babelrc。
+
+<span class="token punctuation">{</span>
+<span class="token string-property property">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+<span class="token string">&quot;@babel/env&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;@babel/preset-react&quot;</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string-property property">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+注意，以下所有 Babel 工具和模块的使用，都必须先写好<span class="token punctuation">.</span>babelrc。
+</code></pre></div><h5 id="命令行转码"><a href="#命令行转码" class="header-anchor">#</a> 命令行转码</h5> <p>Babel 提供命令行工具@babel/cli，用于命令行转码。</p> <div class="language-js extra-class"><pre class="language-js"><code>它的安装命令如下。
+
+$ npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev @babel<span class="token operator">/</span>cli
+基本用法如下。
+
+# 转码结果输出到标准输出
+
+$ npx babel example<span class="token punctuation">.</span>js
+
+# 转码结果写入一个文件
+
+# <span class="token operator">--</span>out<span class="token operator">-</span>file 或 <span class="token operator">-</span>o 参数指定输出文件
+
+$ npx babel example<span class="token punctuation">.</span>js <span class="token operator">--</span>out<span class="token operator">-</span>file compiled<span class="token punctuation">.</span>js
+
+# 或者
+
+$ npx babel example<span class="token punctuation">.</span>js <span class="token operator">-</span>o compiled<span class="token punctuation">.</span>js
+
+# 整个目录转码
+
+# <span class="token operator">--</span>out<span class="token operator">-</span>dir 或 <span class="token operator">-</span>d 参数指定输出目录
+
+$ npx babel src <span class="token operator">--</span>out<span class="token operator">-</span>dir lib
+
+# 或者
+
+$ npx babel src <span class="token operator">-</span>d lib
+
+# <span class="token operator">-</span>s 参数生成 source map 文件
+
+$ npx babel src <span class="token operator">-</span>d lib <span class="token operator">-</span>s
+</code></pre></div><h5 id="babel-node"><a href="#babel-node" class="header-anchor">#</a> babel-node</h5> <div class="language- extra-class"><pre class="language-text"><code>@babel/node模块的babel-node命令，提供一个支持 ES6 的 REPL 环境。它支持 Node 的 REPL 环境的所有功能，而且可以直接运行 ES6 代码。
+
+首先，安装这个模块。
+
+$ npm install --save-dev @babel/node
+然后，执行babel-node就进入 REPL 环境。
+
+$ npx babel-node
+&gt; (x =&gt; x * 2)(1)
+2
+babel-node命令可以直接运行 ES6 脚本。将上面的代码放入脚本文件es6.js，然后直接运行。
+
+# es6.js 的代码
+# console.log((x =&gt; x * 2)(1));
+$ npx babel-node es6.js
+2
+</code></pre></div><h5 id="浏览器环境"><a href="#浏览器环境" class="header-anchor">#</a> 浏览器环境</h5> <div class="language-js extra-class"><pre class="language-js"><code>Babel 也可以用于浏览器环境，使用@babel<span class="token operator">/</span>standalone模块提供的浏览器版本，将其插入网页。
+
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;https://unpkg.com/@babel/standalone/babel.min.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">&quot;text/babel&quot;</span><span class="token operator">&gt;</span>
+<span class="token comment">// Your ES6 code</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+注意，网页实时将 <span class="token constant">ES6</span> 代码转为 <span class="token constant">ES5</span>，对性能会有影响。生产环境需要加载已经转码完成的脚本。
+
+Babel 提供一个<span class="token constant">REPL</span> 在线编译器，可以在线将 <span class="token constant">ES6</span> 代码转为 <span class="token constant">ES5</span> 代码。转换后的代码，可以直接作为 <span class="token constant">ES5</span> 代码插入网页运行。
+
+
+</code></pre></div><h4 id="_2、let-和-const"><a href="#_2、let-和-const" class="header-anchor">#</a> 2、let 和 const</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token constant">ES6</span> 新增了<span class="token keyword">let</span>命令，用来声明变量。它的用法类似于<span class="token keyword">var</span>，但是所声明的变量，只在<span class="token keyword">let</span>命令所在的代码块内有效。
+
+<span class="token punctuation">{</span>
+  <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+a <span class="token comment">// ReferenceError: a is not defined.</span>
+b <span class="token comment">// 1</span>
+
+上面代码在代码块之中，分别用<span class="token keyword">let</span>和<span class="token keyword">var</span>声明了两个变量。然后在代码块之外调用这两个变量，结果<span class="token keyword">let</span>声明的变量报错，<span class="token keyword">var</span>声明的变量返回了正确的值。这表明，<span class="token keyword">let</span>声明的变量只在它所在的代码块有效。
+
+<span class="token keyword">for</span>循环的计数器，就很合适使用<span class="token keyword">let</span>命令。
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ReferenceError: i is not defined</span>
+
+上面代码中，计数器i只在<span class="token keyword">for</span>循环体内有效，在循环体外引用就会报错。
+
+下面的代码如果使用<span class="token keyword">var</span>，最后输出的是<span class="token number">10</span>。
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+a<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10</span>
+
+如果使用<span class="token keyword">let</span>，声明的变量仅在块级作用域内有效，最后输出的是 <span class="token number">6</span>。
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+a<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
+
+<span class="token comment">// var 的情况</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出undefined</span>
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token comment">// let 的情况</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 报错ReferenceError</span>
+<span class="token keyword">let</span> bar <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/js/js_01.html" class="prev">
+        js_01
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.7a89faa1.js" defer></script><script src="/assets/js/2.e73dd9e9.js" defer></script><script src="/assets/js/10.a9692643.js" defer></script>
+  </body>
+</html>

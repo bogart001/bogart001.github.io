@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Editor</title>
+    <link href="static/css/ace.css" rel="stylesheet">
+</head>
+<body>
+<div id="box">
+<div id="top">
+    <ul class="layout-code">
+        <li>
+            <div class="title">HTML代码</div>
+            <div class="content">
+                <pre id="editorHtml" class="editor"></pre>
+            </div>
+        </li>
+        <li>
+            <div class="title">css代码</div>
+            <div class="content">
+                <pre id="editorCss" class="editor"></pre>
+            </div>
+        </li>
+        <li>
+            <div class="title">javascript代码</div>
+            <div class="content">
+                <pre id="editorJs" class="editor"></pre>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="layout-preview" id="bottom">
+    <div class="title">效果预览</div>
+    <div class="content">
+        <iframe id="preview" frameborder="0"></iframe>
+    </div>
+</div>
+<div id="line"></div>
+</div>
+<script src="static/libs/require.js"></script>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    window.onload = function() {
+        var oBox = $("box"), oTop = $("top"), oBottom = $("bottom"), oLine = $("line");
+
+        oLine.onmousedown = function(e) {
+            var disY = (e || event).clientY;
+            oLine.top = oLine.offsetTop;
+
+            document.onmousemove = function(e) {
+                var iT = oLine.top + ((e || event).clientY - disY);
+                var e=e||window.event,tarnameb=e.target||e.srcElement;
+                var maxT = oBox.clientHeight - oLine.clientHeight;
+                oLine.style.margin = 0;
+                iT < 0 && (iT = 0);
+                iT > maxT && (iT = maxT);
+                oLine.style.top = oTop.style.height = iT + "px";
+                oBottom.style.height = oBox.clientHeight - iT + "px";
+                //$("msg").innerText='top.width:'+oLine.style.height+'---bottom.height:'+oBottom.style.height+'---oLine.offsetHeight:'+oLine.offsetHeight+'---disY:'+disY+'---tarnameb:'+tarnameb.tagName;
+                return false
+            };
+
+            document.onmouseup = function() {
+                document.onmousemove = null;
+                document.onmouseup = null;
+                oLine.releaseCapture && oLine.releaseCapture()
+            };
+            oLine.setCapture && oLine.setCapture();
+            return false
+        };
+    };
+
+</script>
+<script>
+    require.config({paths: { "ace" : "./static/libs/ace"}});
+</script>
+<script>
+    require(["ace/ace", "ace/ext/code_lens"], function(ace, codeLens) {
+        var option = {
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: false
+        };
+        // html
+        var editorHtml = ace.edit("editorHtml");
+        editorHtml.session.setMode("ace/mode/html");
+        editorHtml.setTheme("ace/theme/chaos");
+        editorHtml.setOptions(option);
+        editorHtml.setValue("<div id='map'></div>");
+        editorHtml.moveCursorTo(0, 0);
+        editorHtml.session.on('change', function (e) {
+            runAllCodes();
+        });
+        // css
+        var editorCss = ace.edit("editorCss");
+        editorCss.session.setMode("ace/mode/css");
+        editorCss.setTheme("ace/theme/chaos");
+        editorCss.setOptions(option);
+        editorCss.setValue("html,\n" +
+            "body,\n" +
+            "#map {\n" +
+            "  width: 100%;\n" +
+            "  height: 100%;\n" +
+            "  margin: 0;\n" +
+            "  padding: 0;\n" +
+            "  overflow: hidden;\n" +
+            "}");
+        editorCss.moveCursorTo(0, 0);
+        editorCss.session.on('change', function (e) {
+            runAllCodes();
+        });
+        // js
+        var editorJs = ace.edit("editorJs");
+        editorJs.session.setMode("ace/mode/javascript");
+        editorJs.setTheme("ace/theme/chaos");
+        editorJs.setOptions(option);
+        editorJs.setValue("document.getElementById('map').innerText = 'Hello World!';");
+        editorJs.moveCursorTo(0, 0);
+        editorJs.session.on('change', function (e) {
+            runAllCodes();
+        });
+
+        runAllCodes();
+
+        function runAllCodes() {
+            var html = editorHtml.getValue();
+            var css = editorCss.getValue();
+            var js = editorJs.getValue();
+
+            var code = "<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "  <meta charset=\"UTF-8\">\n" +
+                "  <title>Editor</title>\n" +
+                "  <style>";
+            code += "\n" + css;
+
+            code +=
+                "\n  </style>\n" +
+                "</head>\n" +
+                "<body>\n";
+            code += "\n" + html;
+
+            code +=
+                "\n  <script>\n";
+            code += "\n" + js;
+            code +=
+                "\n  <\/script>\n" +
+                "<\/body>\n" +
+                "</html>";
+            document.getElementById("preview").setAttribute("srcdoc", code);
+        }
+    })
+
+</script>
+</body>
+</html>
